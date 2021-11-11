@@ -21,14 +21,7 @@ app.use(express.urlencoded({
 }));
 
 //CORS
-const corsOpts = {
-    origin: '*',
-    credentials: true,
-    methods: ['GET','POST','HEAD','PUT','PATCH','DELETE'],
-    allowedHeaders: ['Content-Type'],
-    exposedHeaders: ['Content-Type']
-};
-app.use(cors(corsOpts));
+app.options('*',cors())
 //App routes
 app.use('/mim', mimRoutes);
 app.use('/user', userRoutes);
