@@ -33,9 +33,9 @@ app.use('/text', textRoutes);
 }) */
 
 //Connection
-const CONNECTION_URL = process.env.CONNECTION_URL;
+//const CONNECTION_URL = process.env.CONNECTION_URL;
 const PORT = process.env.PORT || 5000;
-mongoose.connect(CONNECTION_URL, {
+mongoose.connect(process.env.CONNECTION_URL, {
         useNewUrlParser: true,
         useUnifiedTopology: true
     })
