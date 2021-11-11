@@ -11,6 +11,8 @@ import textRoutes from './routes/text.js'
 // Express creation
 const app = express();
 dotenv.config();
+//CORS
+app.use(cors());
 app.use(express.json({
     limit: "30mb",
     extended: true
@@ -29,8 +31,7 @@ app.use('/text', textRoutes);
 app.get('/',(req,res) => {
     res.send('Hello from API');
 })
-//CORS
-app.use(cors());
+
 //Connection
 //const CONNECTION_URL = process.env.CONNECTION_URL;
 const PORT = process.env.PORT || 5000;
