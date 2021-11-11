@@ -28,8 +28,9 @@ app.use('/user', userRoutes);
 app.use('/text', textRoutes);
 
 app.get('/',(req,res) => {
-    res.send('Hello from API');
+    res.send('Hello from APIiii');
 })
+
 
 //Connection
 const PORT = process.env.PORT || 5000;
