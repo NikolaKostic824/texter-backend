@@ -7,12 +7,23 @@ import dotenv from 'dotenv';
 import mimRoutes from './routes/mim.js';
 import userRoutes from './routes/user.js';
 import textRoutes from './routes/text.js'
+var allowCrossDomain = function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
 
+    // intercept OPTIONS method
+    if ('OPTIONS' == req.method) {
+      res.send(200);
+    }
+    else {
+      next();
+    }
+};
 // Express creation
 const app = express();
 dotenv.config();
-//CORS
-app.use(cors());
+
 app.use(express.json({
     limit: "30mb",
     extended: true
@@ -21,8 +32,9 @@ app.use(express.urlencoded({
     limit: "30mb",
     extended: true
 }));
-
-
+app.use(allowCrossDomain);
+//CORS
+//app.use(cors());
 //App routes
 app.use('/mim', mimRoutes);
 app.use('/user', userRoutes);
