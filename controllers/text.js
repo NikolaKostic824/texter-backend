@@ -24,19 +24,12 @@ export const updateText = async (req, res) => {
     } = req.params;
     const updatedText = req.body;
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
-    try {
-        await Text.findByIdAndUpdate(id, req.body, {
-            new: true
-        });
-        res.status(200).json({
-            message: 'Text Updated'
-        });
-    } catch (error) {
-        res.status(409).json({
-            message: error.message
-        });
-    }
-
+    await Text.findByIdAndUpdate(id, updatedText, {
+        new: true
+    });
+    res.status(200).json({
+        message: 'Text Updated'
+    });
 }
 
 // Delete text by ID
