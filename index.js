@@ -20,8 +20,7 @@ app.use(express.urlencoded({
     extended: true
 }));
 
-//CORS
-app.use(cors());
+
 //App routes
 app.use('/mim', mimRoutes);
 app.use('/user', userRoutes);
@@ -30,7 +29,8 @@ app.use('/text', textRoutes);
 app.get('/',(req,res) => {
     res.send('Hello from API');
 })
-
+//CORS
+app.use(cors());
 //Connection
 //const CONNECTION_URL = process.env.CONNECTION_URL;
 const PORT = process.env.PORT || 5000;
