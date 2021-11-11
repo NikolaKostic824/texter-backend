@@ -21,7 +21,10 @@ app.use(express.urlencoded({
     extended: true
 }));
 //CORS
-app.use(cors());
+app.use(cors({
+    origin:'*',
+    methods:['GET','PUT','DELETE','PATCH']
+}));
 //App routes
 app.use('/mim', mimRoutes);
 app.use('/user', userRoutes);
