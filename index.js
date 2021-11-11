@@ -28,9 +28,9 @@ app.use('/mim', mimRoutes);
 app.use('/user', userRoutes);
 app.use('/text', textRoutes);
 
-/* app.get('/',(req,res) => {
+app.get('/',(req,res) => {
     res.send('Hello from API');
-}) */
+})
 
 //Connection
 //const CONNECTION_URL = process.env.CONNECTION_URL;
