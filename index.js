@@ -13,26 +13,22 @@ dotenv.config();
 
 // Express creation
 const app = express();
-app.use(bodyParser.json({
-    limit: "30mb",
-    extended: true
-}));
-app.use(bodyParser.urlencoded({
-    limit: "30mb",
+app.use(express.json());
+app.use(express.urlencoded({
     extended: true
 }));
 //CORS
 app.use(cors({
-    origin:'*',
-    methods:['GET','PUT','DELETE','PATCH']
+    origin: '*',
+    methods: ['GET', 'PUT', 'DELETE', 'PATCH']
 }));
 //App routes
 app.use('/mim', mimRoutes);
 app.use('/user', userRoutes);
 app.use('/text', textRoutes);
 
-app.get('/',(req,res) => {
-    res.send('Hello from APIiii');
+app.get('/', (req, res) => {
+    res.send('Hello from API');
 })
 
 
