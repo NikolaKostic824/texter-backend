@@ -2,10 +2,9 @@ import Mim from '../model/mim.js';
 
 //Create new mim
 export const createMim = async (req, res) => {
-    
+    const mim = req.body;
+    const newMim = new Mim(mim);
     try {
-        const mim = req.body;
-        const newMim = new Mim(mim);
         console.log(req)
         await newMim.save()
         res.status(201).json({
