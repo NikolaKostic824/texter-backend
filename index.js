@@ -7,13 +7,11 @@ import dotenv from 'dotenv';
 import mimRoutes from './routes/mim.js';
 import userRoutes from './routes/user.js';
 import textRoutes from './routes/text.js'
+dotenv.config();
 
 
 // Express creation
 const app = express();
-dotenv.config();
-//CORS
-app.use(cors());
 app.use(express.json({
     limit: "30mb",
     extended: true
@@ -22,7 +20,8 @@ app.use(express.urlencoded({
     limit: "30mb",
     extended: true
 }));
-
+//CORS
+app.use(cors({origin:'https://textersrb.netlify.app'}));
 //App routes
 app.use('/mim', mimRoutes);
 app.use('/user', userRoutes);
