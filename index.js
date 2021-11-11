@@ -21,7 +21,7 @@ app.use(express.urlencoded({
 }));
 
 //CORS
-app.options('*',cors())
+app.use(cors());
 //App routes
 app.use('/mim', mimRoutes);
 app.use('/user', userRoutes);
