@@ -21,7 +21,7 @@ app.use(express.urlencoded({
     extended: true
 }));
 //CORS
-app.use(cors({origin:'https://textersrb.netlify.app'}));
+app.use(cors({origin:'*'}));
 //App routes
 app.use('/mim', mimRoutes);
 app.use('/user', userRoutes);
