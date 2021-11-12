@@ -1,4 +1,5 @@
 import express from 'express';
+import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
@@ -9,24 +10,34 @@ import userRoutes from './routes/user.js';
 import textRoutes from './routes/text.js'
 dotenv.config();
 
+
 // Express creation
 const app = express();
-app.use(express.json());
+app.use(express.json({
+    limit: "30mb",
+    extended: true
+}));
 app.use(express.urlencoded({
     extended: true
 }));
-//CORS
-app.use(cors({
-    origin: '*',
-    methods: ['GET', 'PUT', 'DELETE', 'PATCH']
-}));
+var allowCrossDomain = function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+}
+
+app.use(allowCrossDomain);
 //App routes
 app.use('/mim', mimRoutes);
 app.use('/user', userRoutes);
 app.use('/text', textRoutes);
+
 app.get('/', (req, res) => {
     res.send('Hello from API');
 })
+
+
 //Connection
 const PORT = process.env.PORT || 5000;
 mongoose.connect(process.env.CONNECTION_URL, {
