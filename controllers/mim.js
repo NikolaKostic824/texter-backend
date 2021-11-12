@@ -10,6 +10,8 @@ export const createMim = async (req, res) => {
         res.status(201).json({
             message: 'Post saved'
         });
+        console.log(res)
+
     } catch (error) {
         res.status(409).json({
             message: error.message
