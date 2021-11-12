@@ -2,10 +2,10 @@ import Mim from '../model/mim.js';
 
 //Create new mim
 export const createMim = async (req, res) => {
-    const mim = req.body;
-    const newMim = new Mim(mim);
     try {
-        console.log(req)
+        const mim = req.body;
+        const newMim = new Mim(mim);
+
         await newMim.save()
         res.status(201).json({
             message: 'Post saved'
@@ -20,7 +20,7 @@ export const createMim = async (req, res) => {
 }
 
 //Get all mims
-export const getMims = async (req,res) => {
+export const getMims = async (req, res) => {
     try {
         const mims = await Mim.find();
         res.status(200).json(mims)
