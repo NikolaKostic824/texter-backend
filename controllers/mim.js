@@ -6,7 +6,7 @@ export const createMim = async (req, res) => {
     const newMim = new Mim(mim);
     try {
         await newMim.save()
-        res.json({
+        res.status(201).json({
             message: 'Post saved'
         });
     } catch (error) {
