@@ -5,7 +5,8 @@ import {
     getAllUsers,
     loginUser,
     deleteUser,
-    getUser
+    getUser,
+    getAllUsersAdmin
 } from '../controllers/user.js';
 
 //Router Creation
@@ -15,6 +16,7 @@ const router = express.Router();
 router.post('/', createUser);
 router.patch('/:id', editUser);
 router.get('/', getAllUsers);
+router.get('/admin', getAllUsersAdmin);
 router.get('/:id', getUser);
 router.post('/login', loginUser);
 router.delete('/:id', deleteUser);

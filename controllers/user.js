@@ -29,7 +29,7 @@ export const editUser = async (req, res) => {
   res.json(updatedUser);
 };
 
-//Get all users
+//Get all users(writers)
 export const getAllUsers = async (req, res) => {
   try {
     const users = await User.find({
@@ -42,7 +42,17 @@ export const getAllUsers = async (req, res) => {
     });
   }
 };
-
+//Get all users
+export const getAllUsersAdmin = async (req, res) => {
+  try {
+    const users = await User.find();
+    res.status(200).json(users);
+  } catch (error) {
+    res.status(404).json({
+      message: error.message,
+    });
+  }
+};
 //Delete user by ID
 export const deleteUser = async (req, res) => {
   const { id } = req.params;
