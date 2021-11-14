@@ -72,15 +72,11 @@ export const getAllTexts = async (req, res) => {
     }
 }
 
-export const getAllByTheme = async (req, res) => {
-    const {
-        theme
-    } = req.params;
-    console.log(req.params)
+export const getAllMims = async (req, res) => {
     try {
         const texts = await Text.find({
             approved: 1,
-            theme
+            theme: 'Mimovi'
         });
         res.status(200).json(texts)
     } catch (error) {
@@ -89,13 +85,97 @@ export const getAllByTheme = async (req, res) => {
         })
     }
 }
-/* getAllPolitics,
-getAllSport,
-getAllStories,
-getAllRandom,
-getAllCulture,
-getAllReaders, */
-
+export const getAllPolitics = async (req, res) => {
+    try {
+        const texts = await Text.find({
+            approved: 1,
+            theme: 'Politika'
+        });
+        res.status(200).json(texts)
+    } catch (error) {
+        res.status(404).json({
+            message: error.message
+        })
+    }
+}
+export const getAllSport = async (req, res) => {
+    try {
+        const texts = await Text.find({
+            approved: 1,
+            theme: 'Sport'
+        });
+        res.status(200).json(texts)
+    } catch (error) {
+        res.status(404).json({
+            message: error.message
+        })
+    }
+}
+export const getAllStories = async (req, res) => {
+    try {
+        const texts = await Text.find({
+            approved: 1,
+            theme: 'Priče'
+        });
+        res.status(200).json(texts)
+    } catch (error) {
+        res.status(404).json({
+            message: error.message
+        })
+    }
+}
+export const getAllRandom = async (req, res) => {
+    try {
+        const texts = await Text.find({
+            approved: 1,
+            theme: 'Rendom'
+        });
+        res.status(200).json(texts)
+    } catch (error) {
+        res.status(404).json({
+            message: error.message
+        })
+    }
+}
+export const getAllCulture = async (req, res) => {
+    try {
+        const texts = await Text.find({
+            approved: 1,
+            theme: 'Kultura'
+        });
+        res.status(200).json(texts)
+    } catch (error) {
+        res.status(404).json({
+            message: error.message
+        })
+    }
+}
+export const getAllReaders = async (req, res) => {
+    try {
+        const texts = await Text.find({
+            approved: 1,
+            theme: 'Čitaoci Pisci'
+        });
+        res.status(200).json(texts)
+    } catch (error) {
+        res.status(404).json({
+            message: error.message
+        })
+    }
+}
+export const getAllSport = async (req, res) => {
+    try {
+        const texts = await Text.find({
+            approved: 1,
+            theme: 'Sport'
+        });
+        res.status(200).json(texts)
+    } catch (error) {
+        res.status(404).json({
+            message: error.message
+        })
+    }
+}
 //Get all text by author
 export const getAllTextsByAuthor = async (req, res) => {
     const {
