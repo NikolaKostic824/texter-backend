@@ -7,7 +7,6 @@ import {
     getAllTextsByAuthor,
     getText,
     getAllTexts,
-    getAllByTheme,
     getAllMims,
     getAllPolitics,
     getAllSport,
@@ -26,14 +25,15 @@ router.patch('/:id', updateText);
 router.patch('/approve/:id', approveText);
 router.delete('/:id', deleteText);
 router.get('/sorted_text_author/:author', getAllTextsByAuthor);
+router.get('/category/mimovi', getAllMims);
+router.get("/category/politika", getAllPolitics);
+router.get("/category/sport", getAllSport);
+router.get("/category/price", getAllStories);
+router.get("/category/rendom", getAllRandom);
+router.get("/category/kultura", getAllCulture);
+router.get("/category/citaoci", getAllReaders);
 router.get('/:id', getText);
 router.get("/", getAllTexts);
-router.get("/mimovi", getAllMims);
-router.get("/politika", getAllPolitics);
-router.get("/sport", getAllSport);
-router.get("/price", getAllStories);
-router.get("/rendom", getAllRandom);
-router.get("/kultura", getAllCulture);
-router.get("/citaoci", getAllReaders);
+
 
 export default router;

@@ -27,3 +27,14 @@ export const getMims = async (req,res) => {
         })
     }
 }
+
+//Delete mim by ID
+export const deleteMim = async (req, res) => {
+    const { id } = req.params;
+    if (!mongoose.Types.ObjectId.isValid(id))
+      return res.status(404).send(`No Mim with id: ${id}`);
+    await Mim.findByIdAndRemove(id);
+    res.json({
+      message: "Mim was deleted",
+    });
+  };

@@ -73,6 +73,7 @@ export const getAllTexts = async (req, res) => {
 }
 
 export const getAllMims = async (req, res) => {
+    console.log("stiglo")
     try {
         const texts = await Text.find({
             approved: 1,
@@ -154,20 +155,7 @@ export const getAllReaders = async (req, res) => {
     try {
         const texts = await Text.find({
             approved: 1,
-            theme: 'Čitaoci Pisci'
-        });
-        res.status(200).json(texts)
-    } catch (error) {
-        res.status(404).json({
-            message: error.message
-        })
-    }
-}
-export const getAllSport = async (req, res) => {
-    try {
-        const texts = await Text.find({
-            approved: 1,
-            theme: 'Sport'
+            theme: 'Čitaoci pisci'
         });
         res.status(200).json(texts)
     } catch (error) {
