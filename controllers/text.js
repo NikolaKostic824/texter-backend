@@ -73,7 +73,6 @@ export const getAllTexts = async (req, res) => {
 }
 
 export const getAllMims = async (req, res) => {
-    console.log("stiglo")
     try {
         const texts = await Text.find({
             approved: 1,
