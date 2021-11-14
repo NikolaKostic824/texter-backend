@@ -72,6 +72,30 @@ export const getAllTexts = async (req, res) => {
     }
 }
 
+export const getAllByTheme = async (req, res) => {
+    const {
+        theme
+    } = req.params;
+    console.log(req.params)
+    try {
+        const texts = await Text.find({
+            approved: 1,
+            theme
+        });
+        res.status(200).json(texts)
+    } catch (error) {
+        res.status(404).json({
+            message: error.message
+        })
+    }
+}
+/* getAllPolitics,
+getAllSport,
+getAllStories,
+getAllRandom,
+getAllCulture,
+getAllReaders, */
+
 //Get all text by author
 export const getAllTextsByAuthor = async (req, res) => {
     const {
