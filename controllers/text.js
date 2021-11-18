@@ -209,11 +209,11 @@ export const getAllStories = async (req, res) => {
         })
     }
 }
-export const getAllRandom = async (req, res) => {
+export const getAllSvastara = async (req, res) => {
     try {
         const texts = await Text.find({
             approved: 1,
-            theme: 'Rendom'
+            theme: 'Svaštara'
         });
         res.status(200).json(texts)
     } catch (error) {

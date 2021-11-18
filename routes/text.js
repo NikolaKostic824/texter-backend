@@ -11,7 +11,7 @@ import {
     getAllPolitics,
     getAllSport,
     getAllStories,
-    getAllRandom,
+    getAllSvastara,
     getAllCulture,
     getAllReaders,
     getAllTextsAdmin,
@@ -29,7 +29,7 @@ router.get('/category/mimovi', getAllMims);
 router.get("/category/politika", getAllPolitics);
 router.get("/category/sport", getAllSport);
 router.get("/category/price", getAllStories);
-router.get("/category/rendom", getAllRandom);
+router.get("/category/svastara", getAllSvastara);
 router.get("/category/kultura", getAllCulture);
 router.get("/category/citaoci", getAllReaders);
 router.get("/admin", getAllTextsAdmin);
