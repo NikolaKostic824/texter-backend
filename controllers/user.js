@@ -28,11 +28,14 @@ export const editUser = async (req, res) => {
   });
   res.json(updatedUser);
 };
-
 //Get all users(writers)
 export const getAllUsers = async (req, res) => {
   try {
-    const users = await User.find();
+    const users = await User.find({},{
+      "_id":1,
+      "nameUser":1,
+      "image":1
+    });
     res.status(200).json(users);
   } catch (error) {
     res.status(404).json({
@@ -43,7 +46,11 @@ export const getAllUsers = async (req, res) => {
 //Get all users
 export const getAllUsersAdmin = async (req, res) => {
   try {
-    const users = await User.find();
+    const users = await User.find({},{
+      "_id":1,
+      "nameUser":1,
+      "image":1
+    });
     res.status(200).json(users);
   } catch (error) {
     res.status(404).json({
@@ -61,7 +68,6 @@ export const deleteUser = async (req, res) => {
     message: "User was deleted",
   });
 };
-
 // Get user by Id
 export const getUser = async (req, res) => {
   const { id } = req.params;
@@ -76,7 +82,6 @@ export const getUser = async (req, res) => {
     });
   }
 };
-
 //Login user
 export const loginUser = async (req, res) => {
   const username = req.body.username;

@@ -17,8 +17,6 @@ const text = mongoose.Schema({
     authorImage: String,
     authorSignature: String
 },{minimize: false });
-
 //Connect to mongodb
 const Text = mongoose.model('Text', text);
-
 export default Text;

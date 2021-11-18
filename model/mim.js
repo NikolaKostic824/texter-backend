@@ -4,8 +4,6 @@ import mongoose from 'mongoose';
 const mim = mongoose.Schema({
     image: String
 });
-
 //Connect to mongodb
 const Mim = mongoose.model('Mim', mim);
-
 export default Mim;

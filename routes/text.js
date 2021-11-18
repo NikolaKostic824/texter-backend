@@ -14,11 +14,11 @@ import {
     getAllRandom,
     getAllCulture,
     getAllReaders,
+    getAllTextsAdmin,
+    getAllTextsSwipe
 } from '../controllers/text.js';
-
 //Router Creation
 const router = express.Router();
-
 //Text routes
 router.post('/', createText);
 router.patch('/:id', updateText);
@@ -32,8 +32,8 @@ router.get("/category/price", getAllStories);
 router.get("/category/rendom", getAllRandom);
 router.get("/category/kultura", getAllCulture);
 router.get("/category/citaoci", getAllReaders);
+router.get("/admin", getAllTextsAdmin);
+router.get("/swipe", getAllTextsSwipe);
 router.get('/:id', getText);
 router.get("/", getAllTexts);
-
-
 export default router;

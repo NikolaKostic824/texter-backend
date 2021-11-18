@@ -8,10 +8,8 @@ import {
     getUser,
     getAllUsersAdmin
 } from '../controllers/user.js';
-
 //Router Creation
 const router = express.Router();
-
 //User Routes
 router.post('/', createUser);
 router.patch('/:id', editUser);
@@ -20,5 +18,4 @@ router.get('/admin', getAllUsersAdmin);
 router.get('/:id', getUser);
 router.post('/login', loginUser);
 router.delete('/:id', deleteUser);
-
 export default router;
