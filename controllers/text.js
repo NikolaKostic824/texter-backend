@@ -1,6 +1,8 @@
 import Text from '../model/text.js';
 import mongoose from 'mongoose';
 
+
+
 //Create new text
 export const createText = async (req, res) => {
     const text = req.body;
@@ -94,7 +96,9 @@ export const getAllTextsSwipe = async (req, res) => {
             "theme": 1,
             "author": 1,
             "authorImage": 1
-        }).sort({_id: -1}).limit(6);
+        }).sort({
+            _id: -1
+        }).limit(6);
         res.status(200).json(texts)
     } catch (error) {
         res.status(404).json({
@@ -278,11 +282,12 @@ export const getAllReaders = async (req, res) => {
 //Get all text by author
 export const getAllTextsByAuthor = async (req, res) => {
     const {
-        author
+        id
+
     } = req.params;
     try {
         const textsByAuthor = await Text.find({
-            author,
+            authorId:id,
             approved: 1
         }, {
             "_id": 1,
@@ -302,7 +307,7 @@ export const getAllTextsByAuthor = async (req, res) => {
     }
 }
 //Get text by Id
-export const getText = async (req, res) => {
+export const getText = async (req, res,next) => {
     const {
         id
     } = req.params;
@@ -310,9 +315,12 @@ export const getText = async (req, res) => {
     try {
         const textById = await Text.findById(id)
         res.status(200).json(textById);
+        next()
     } catch (error) {
         res.status(404).json({
             message: error.message
         })
+        next()
+
     }
 }

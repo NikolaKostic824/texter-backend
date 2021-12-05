@@ -15,7 +15,8 @@ const text = mongoose.Schema({
     theme: String,
     author: String,
     authorImage: String,
-    authorSignature: String
+    authorSignature: String,
+    authorId:String
 },{minimize: false });
 //Connect to mongodb
 const Text = mongoose.model('Text', text);

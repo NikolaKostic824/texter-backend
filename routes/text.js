@@ -24,7 +24,7 @@ router.post('/', createText);
 router.patch('/:id', updateText);
 router.patch('/approve/:id', approveText);
 router.delete('/:id', deleteText);
-router.get('/sorted_text_author/:author', getAllTextsByAuthor);
+router.get('/sorted_text_author/:id', getAllTextsByAuthor);
 router.get('/category/mimovi', getAllMims);
 router.get("/category/politika", getAllPolitics);
 router.get("/category/sport", getAllSport);
